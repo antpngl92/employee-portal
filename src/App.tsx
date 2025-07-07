@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router"
-import { Navbar } from "./components"
+import { Navbar, Toaster } from "./components"
 import { Home } from "./pages"
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
       </main>
+      <Toaster position="top-right" />
     </div>
   )
 }
