@@ -1,4 +1,4 @@
-import { EmployeeList } from "@/components";
+import { EmployeeList, CreateEmployeeDialog } from "@/components";
 import { useEmployeesContext } from "@/context/employee";
 
 const Home = () => {
@@ -10,6 +10,11 @@ const Home = () => {
         <h1 className="text-3xl font-bold leading-tight">
           Employee Directory
         </h1>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+          <div className="relative">
+             <CreateEmployeeDialog />
+          </div>
+        </div>
       </div>
 
 
