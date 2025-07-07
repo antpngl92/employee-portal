@@ -2,6 +2,7 @@ import { useState } from "react";
 import { EmployeeList, CreateEmployeeDialog, Input, Label } from "@/components";
 import { useEmployeesContext } from "@/context/employee";
 import { Search } from "lucide-react";
+import LoadingSkeleton from "./components/LoadingSkeleton/LoadingSkeleton";
 
 const Home = () => {
   const { employees, loading, error } = useEmployeesContext();
@@ -44,7 +45,9 @@ const Home = () => {
 
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          Loading ...
+          {Array.from({ length: 3 }).map((_, i) => (
+            <LoadingSkeleton key={i} />
+          ))}
         </div>
       ) : error ? (
         <p className="text-red-600">{error}</p>
