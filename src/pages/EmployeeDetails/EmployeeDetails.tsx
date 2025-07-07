@@ -12,7 +12,7 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage
 } from "@/components"
-import { ChevronLeft, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { useNavigate, useParams } from 'react-router';
 import { useEmployeesContext } from '@/context/employee';
 import { toast } from "sonner"
