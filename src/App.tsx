@@ -1,9 +1,11 @@
 
 function App() {
   return (
-    <>
-        <div className="text-3xl bg-amber-600 w-full mt-10">React App</div>
-    </>
+    <div className="min-h-screen flex flex-col">
+      <main className="container mx-auto px-4 pt-24 flex-grow">
+        
+      </main>
+    </div>
   )
 }
 
