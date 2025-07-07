@@ -11,6 +11,8 @@ import {
 } from '@/components'
 import { Plus } from 'lucide-react'
 import { EmployeeFormValues } from '@/types/employee'
+import EmployeeForm from '../EmployeeForm/EmployeeForm'
+import { toast } from "sonner"
 
 const CreateEmployeeDialog = () => {
   const [open, setOpen] = useState<boolean>(false)
@@ -18,6 +20,7 @@ const CreateEmployeeDialog = () => {
 
   const handleCreate = async (data: EmployeeFormValues) => {
     await create(data)
+    toast.success("Employee has been created")
     setOpen(false)
   }
 
@@ -36,7 +39,7 @@ const CreateEmployeeDialog = () => {
             Enter details and click <strong>Submit</strong>.
           </DialogDescription>
         </DialogHeader>
-        {/* Employee form goes here */}
+       <EmployeeForm onSubmit={handleCreate} />
       </DialogContent>
     </Dialog>
   )
