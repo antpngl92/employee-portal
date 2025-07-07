@@ -10,13 +10,13 @@ import {
   Button
 } from '@/components'
 import { Plus } from 'lucide-react'
+import { EmployeeFormValues } from '@/types/employee'
 
 const CreateEmployeeDialog = () => {
   const [open, setOpen] = useState<boolean>(false)
   const { create } = useEmployeesContext();
 
-  // TODO: define data when form is ready
-  const handleCreate = async (data: any) => {
+  const handleCreate = async (data: EmployeeFormValues) => {
     await create(data)
     setOpen(false)
   }

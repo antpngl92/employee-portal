@@ -13,7 +13,7 @@ import {
   updateEmployee,
   deleteEmployee,
 } from "@/api/employee";
-import { Employee } from "@/types/employee";
+import { Employee, EmployeeFormValues } from "@/types/employee";
 
 interface EmployeesContextValue {
   employees: Employee[];
@@ -51,8 +51,7 @@ export const EmployeesProvider: FC<{ children: ReactNode }> = ({ children }) => 
     }
   }, []);
 
-  // TODO: change type to form data type
-  const create = useCallback(async (data: any) => {
+  const create = useCallback(async (data: EmployeeFormValues) => {
     setLoading(true);
     try {
       const newEmp = await createEmployee(data);
@@ -67,8 +66,7 @@ export const EmployeesProvider: FC<{ children: ReactNode }> = ({ children }) => 
     }
   }, []);
 
-  // TODO: change type to form data type
-  const update = useCallback(async (id: number, data: any) => {
+  const update = useCallback(async (id: number, data: EmployeeFormValues) => {
     setLoading(true);
     try {
       const updated = await updateEmployee(id, data);
