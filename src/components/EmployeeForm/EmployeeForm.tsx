@@ -2,8 +2,8 @@ import { FC } from "react";
 import { employeeSchema } from "./schema";
 import { Employee, EmployeeFormValues } from "@/types/employee";
 import {
-  Button, 
-  Input, 
+  Button,
+  Input,
   Form,
   FormControl,
   FormField,
@@ -30,7 +30,7 @@ const EmployeeForm: FC<EmployeeFormProps> = ({ employee, onSubmit }) => {
     }
   }
   )
-  
+
   return (
     <Form {...form}>
       <form
