@@ -18,6 +18,7 @@ import { useEmployeesContext } from '@/context/employee';
 import { toast } from "sonner"
 import { EmployeeFormValues } from '@/types/employee';
 import NotFound from "./components/NotFound/NotFound";
+import LoadingSkeleton from "./components/LoadingSkeleton/LoadingSkeleton";
 
 
 const EmployeeDetails = () => {
@@ -26,9 +27,9 @@ const EmployeeDetails = () => {
   const { id } = useParams<{ id: string }>();
   const employeeId = Number(id);
   const employee = employeeMap[employeeId]
-
+  
   if (!employee) return <NotFound />
-  if (loading) return <>Loading ...</>;
+  if (loading) return <LoadingSkeleton />;
   if (error) return <p className="text-center py-8 text-red-600">{error}</p>;
 
   const handleDelete = async () => {
