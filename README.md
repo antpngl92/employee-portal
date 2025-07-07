@@ -1,69 +1,91 @@
-# React + TypeScript + Vite
+# Employee Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple employee management portal built with React, TypeScript, Tailwind CSS, and json-server. It demonstrates a clean architecture using React Context for state management, React Router for navigation, and Shadcn components for UI. Unit tests are written with Vitest and Testing Library.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Home Page** (`/`)
 
-## Expanding the ESLint configuration
+  - Displays a list of employees fetched from a local json-server
+  - Shows loading skeletons while data is loading
+  - Filters employees by first or last name via a search input
+  - Opens a modal to create a new employee
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Employee Details Page** (`/employee/:id`)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  - View, edit, or delete an employee
+  - Form validation with Zod and react-hook-form
+  - Confirmation dialog before deletion
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Global State**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  - `EmployeesContext` provides `employees`, `loading`, `error`, and CRUD methods across the app
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Unit Tests**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+  - Vitest + Testing Library for component and page tests
+  - Coverage for form validation, context usage, and routing scenarios
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 Tech Stack
+
+- **Frameworks & Libraries**: React, TypeScript, Tailwind CSS, Shadcn/UI, React Router
+- **Data & Networking**: json-server (REST API), Axios
+- **Forms & Validation**: react-hook-form, Zod
+- **Testing**: Vitest, @testing-library/react
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+- Node.js v16+ (or newer)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/antpngl92/employee-portal.git
+   cd employee-portal
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Start the fake API server** Make sure you have `db.json` in the project root:
+
+   ```json
+   {
+     "employee": [
+       { "id": 1, "firstName": "Roxanne", "lastName": "Ernesto", ... }
+     ]
+   }
+   ```
+
+   Then run:
+
+   ```bash
+   npm run server
+   ```
+
+4. **Run the app**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+
+## ℹ️ Notes
+
+- **Context**: All CRUD operations (`list`, `create`, `update`, `delete`) and state are managed via `EmployeesContext` in `src/context/employee.tsx`.
+- **Forms**: The form component (`EmployeeForm`) uses react-hook-form with Zod schema for validation.
+- **UI**: Uses Shadcn components for a consistent look & feel.
