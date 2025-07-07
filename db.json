@@ -6,6 +6,20 @@
       "email": "Brisa_Witting@gmail.com",
       "jobTitle": "Developer",
       "id": 38899
+    },
+    {
+      "firstName": "Anton",
+      "lastName": "Nyagolov",
+      "email": "nyagolov.anton@gmail.com",
+      "jobTitle": "Software Developer",
+      "id": 38900
+    },
+    {
+      "firstName": "Donald ",
+      "lastName": "Trump",
+      "email": "d.t@test.com",
+      "jobTitle": "Politician",
+      "id": 38902
     }
   ]
 }
