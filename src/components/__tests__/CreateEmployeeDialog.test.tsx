@@ -2,7 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { toast } from 'sonner'
-import CreateEmployeeDialog from '../CreateEmployeeDialog/CreateEmployeeDialog'
+import { CreateEmployeeDialog } from '@/components'
 
 const employeeContextCreateMock = vi.fn()
 vi.mock('@/context/employee', () => ({
